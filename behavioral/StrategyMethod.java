@@ -59,31 +59,32 @@ class InsertionSort implements SortingStrategy {
 
 public class StrategyMethod {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a list of numbers (space-separated): ");
-        String input = scanner.nextLine();
-        int[] numbers = Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter a list of numbers (space-separated): ");
+            String input = scanner.nextLine();
+            int[] numbers = Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        SortingStrategy sortingStrategy;
-        System.out.println("Select sorting algorithm:");
-        System.out.println("1. Bubble Sort");
-        System.out.println("2. Selection Sort");
-        System.out.println("3. Insertion Sort");
-        int choice = scanner.nextInt();
-        switch (choice) {
-            case 1:
-                sortingStrategy = new BubbleSort();
-                break;
-            case 2:
-                sortingStrategy = new SelectionSort();
-                break;
-            case 3:
-                sortingStrategy = new InsertionSort();
-                break;
-            default:
-                System.out.println("Invalid choice. Using Bubble Sort.");
-                sortingStrategy = new BubbleSort();
+            SortingStrategy sortingStrategy;
+            System.out.println("Select sorting algorithm:");
+            System.out.println("1. Bubble Sort");
+            System.out.println("2. Selection Sort");
+            System.out.println("3. Insertion Sort");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    sortingStrategy = new BubbleSort();
+                    break;
+                case 2:
+                    sortingStrategy = new SelectionSort();
+                    break;
+                case 3:
+                    sortingStrategy = new InsertionSort();
+                    break;
+                default:
+                    System.out.println("Invalid choice. Using Bubble Sort.");
+                    sortingStrategy = new BubbleSort();
+            }
+            sortingStrategy.sort(numbers);
         }
-        sortingStrategy.sort(numbers);
     }
 }
