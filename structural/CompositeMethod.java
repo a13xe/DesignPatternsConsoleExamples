@@ -44,7 +44,7 @@ class Directory implements FileSystemComponent {
     }
 }
 
-public class CompositeMethodExample {
+public class CompositeMethod {
     public static void main(String[] args) {
         // Create files
         File file1 = new File("file1.txt");
