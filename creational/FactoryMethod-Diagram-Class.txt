@@ -1,0 +1,37 @@
+left to right direction
+
+skinparam{
+componentStyle uml2
+classAttributeIconSize 1
+handwritten false
+backgroundcolor #3f5efb-fc466b
+}
+
+@startuml
+
+interface Shape {
+    + draw()
+}
+
+class Circle {
+    + draw()
+}
+
+class Square {
+    + draw()
+}
+
+class ShapeFactory {
+    + createShape(shapeType: String): Shape
+}
+
+class FactoryMethodExample {
+    + main(args: String[])
+}
+
+Shape <|.. Circle
+Shape <|.. Square
+ShapeFactory --> Shape
+FactoryMethodExample --> ShapeFactory
+
+@enduml

@@ -34,7 +34,7 @@ class ShapeFactory {
 }
 
 // Main program
-public class FactoryMethodExample {
+public class FactoryMethod {
     public static void main(String[] args) {
         Shape circle = ShapeFactory.createShape("circle");
         circle.draw();

@@ -1,0 +1,32 @@
+'left to right direction
+
+skinparam{
+componentStyle uml2
+classAttributeIconSize 1
+handwritten false
+backgroundcolor #833ab4-fcb045
+}
+
+@startuml
+
+actor User
+
+User -> ShapeFactory: createShape(shapeType: String)
+activate ShapeFactory
+
+ShapeFactory -> Circle: new Circle()
+activate Circle
+Circle --> ShapeFactory
+
+ShapeFactory -> Square: new Square()
+activate Square
+Square --> ShapeFactory
+
+ShapeFactory --> User: shape: Shape
+deactivate ShapeFactory
+
+User -> shape: draw()
+activate shape
+shape --> User
+
+@enduml
