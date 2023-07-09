@@ -1,0 +1,38 @@
+skinparam{
+componentStyle uml2
+classAttributeIconSize 1
+handwritten false
+backgroundcolor #eeaeca-94bbe9
+}
+
+@startuml
+
+actor User
+participant StrategyMethod
+participant BubbleSort
+participant SelectionSort
+participant InsertionSort
+
+User -> StrategyMethod: Enter a list of numbers (space-separated)
+StrategyMethod -> StrategyMethod: Read input numbers
+StrategyMethod -> User: Display sorting algorithm options
+User -> StrategyMethod: Select sorting algorithm choice
+StrategyMethod -> StrategyMethod: Determine sorting strategy based on choice
+
+alt Bubble Sort selected
+    StrategyMethod -> BubbleSort: Create BubbleSort instance
+    BubbleSort -> BubbleSort: Sort numbers using Bubble Sort
+    BubbleSort -> StrategyMethod: Print sorted array
+else Selection Sort selected
+    StrategyMethod -> SelectionSort: Create SelectionSort instance
+    SelectionSort -> SelectionSort: Sort numbers using Selection Sort
+    SelectionSort -> StrategyMethod: Print sorted array
+else Insertion Sort selected
+    StrategyMethod -> InsertionSort: Create InsertionSort instance
+    InsertionSort -> InsertionSort: Sort numbers using Insertion Sort
+    InsertionSort -> StrategyMethod: Print sorted array
+end
+
+StrategyMethod -> User: Display sorted array
+
+@enduml

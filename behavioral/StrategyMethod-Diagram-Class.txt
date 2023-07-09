@@ -1,0 +1,37 @@
+left to right direction
+
+skinparam{
+componentStyle uml2
+classAttributeIconSize 1
+handwritten false
+backgroundcolor #bcf46b-d794e9
+}
+
+@startuml
+
+interface SortingStrategy {
+    +sort(arr: int[]): void
+}
+
+class BubbleSort {
+    +sort(arr: int[]): void
+}
+
+class SelectionSort {
+    +sort(arr: int[]): void
+}
+
+class InsertionSort {
+    +sort(arr: int[]): void
+}
+
+class StrategyMethod {
+    +main(args: String[]): void
+}
+
+SortingStrategy <|.. BubbleSort
+SortingStrategy <|.. SelectionSort
+SortingStrategy <|.. InsertionSort
+StrategyMethod --> SortingStrategy
+
+@enduml
