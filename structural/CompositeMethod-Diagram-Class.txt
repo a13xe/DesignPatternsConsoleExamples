@@ -1,0 +1,39 @@
+left to right direction
+
+skinparam{
+componentStyle uml2
+classAttributeIconSize 1
+handwritten false
+backgroundcolor #020024-00d4ff
+}
+
+@startuml
+
+interface FileSystemComponent {
+    +display()
+}
+
+class File {
+    -name: String
+    +File(name: String)
+    +display()
+}
+
+class Directory {
+    -name: String
+    -components: List<FileSystemComponent>
+    +Directory(name: String)
+    +addComponent(component: FileSystemComponent)
+    +removeComponent(component: FileSystemComponent)
+    +display()
+}
+
+class CompositeMethod {
+    +main(args: String[])
+}
+
+FileSystemComponent <|.. File
+FileSystemComponent <|.. Directory
+CompositeMethod --> Directory
+
+@enduml

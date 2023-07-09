@@ -1,0 +1,59 @@
+skinparam{
+componentStyle uml2
+classAttributeIconSize 1
+handwritten false
+backgroundcolor #22c1c3-fdbb2d
+}
+
+@startuml
+
+actor User
+
+User -> CompositeMethodExample: main(args)
+activate CompositeMethodExample
+
+CompositeMethodExample -> Directory: Directory("dir1")
+activate Directory
+CompositeMethodExample -> Directory: Directory("dir2")
+activate Directory
+CompositeMethodExample -> File: File("file1.txt")
+activate File
+CompositeMethodExample -> File: File("file2.txt")
+activate File
+CompositeMethodExample -> File: File("file3.txt")
+activate File
+
+CompositeMethodExample -> Directory: addComponent(file1)
+activate Directory
+Directory -> FileSystemComponent: components.add(file1)
+
+CompositeMethodExample -> Directory: addComponent(file2)
+activate Directory
+Directory -> FileSystemComponent: components.add(file2)
+
+CompositeMethodExample -> Directory: addComponent(file3)
+activate Directory
+Directory -> FileSystemComponent: components.add(file3)
+
+CompositeMethodExample -> Directory: addComponent(dir2)
+activate Directory
+Directory -> FileSystemComponent: components.add(dir2)
+
+CompositeMethodExample -> Directory: display()
+activate Directory
+Directory -> FileSystemComponent: display()
+
+User <- CompositeMethodExample: Display directory structure
+deactivate CompositeMethodExample
+User <- Directory: Display: Directory: dir1
+deactivate Directory
+User <- Directory: Display: File: file1.txt
+deactivate File
+User <- Directory: Display: File: file2.txt
+deactivate File
+User <- Directory: Display: Directory: dir2
+deactivate Directory
+User <- Directory: Display: File: file3.txt
+deactivate File
+
+@enduml
